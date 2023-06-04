@@ -6,7 +6,7 @@ from domain.user import user_router
 app = FastAPI()
 
 origins = [
-    "http://127.0.0.1:5173",
+    "http://localhost:5173",
 ]
 
 app.add_middleware(
@@ -16,5 +16,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/hello")
+def hello():
+    return {"message": "hello 001"}
 
 app.include_router(user_router.router)

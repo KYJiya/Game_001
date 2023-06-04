@@ -7,3 +7,6 @@ passlib[bcrypt]
 
 sqlalchemy
 alembic
+
+
+#frontend
