@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
+from domain.hello import hello_router
 from domain.user import user_router
 
 app = FastAPI()
@@ -17,8 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/hello")
-def hello():
-    return {"message": "hello 001"}
 
+app.include_router(hello_router.router)
 app.include_router(user_router.router)
